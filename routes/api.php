@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ComplaintController;
-
+use App\Http\Controllers\BuyerRequestController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,3 +29,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/complaint',[ComplaintController::class,'create']);
 Route::put('/complaint',[ComplaintController::class,'update']);
 Route::get('/complaint',[ComplaintController::class,'getall']);
+Route::post('/buyer_req',[BuyerRequestController::class,'createBuyerRequest']);
+Route::get('/admin/Request',[BuyerRequestController::class,'displayAllRequest']);
+Route::get('/admin/Request/{id}',[BuyerRequestController::class,'displayRequestById']);
+Route::Put('/admin/Request/Reject/{id}',[BuyerRequestController::class,'rejectRequest']);
+Route::Put('/admin/Request/Accept/{id}',[BuyerRequestController::class,'acceptRequest']);
