@@ -1,24 +1,17 @@
 <?php
 
-us<<<<<<< HEAD
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
 
-=======
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\BuyerRequestsController;
-
-
 
 use App\Models\Category;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ComplaintController;
 use App\Http\Controllers\BuyerRequestController;
->>>>>>> 902e67a71a68d36f0af15895d6c9ceacb48d64e3
 /*
 |--------------------------------------------------------------------------
 | API Routes

@@ -25,10 +25,12 @@ class CreateAdsTable extends Migration
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
 
-            //$table->integer('categoryId')->nullable();
-            $table->foreignId('categoryId')->references('id')->on('categories')
+
+            $table->integer('categoryId')->nullable();
+            
+            /*$table->foreignId('categoryId')->references('id')->on('categories')
             ->onDelete('cascade')
-            ->onUpdate('cascade');
+            ->onUpdate('cascade');*/
 
             $table->string('brand');
             $table->string('model');
