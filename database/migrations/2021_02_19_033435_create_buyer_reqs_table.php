@@ -15,13 +15,15 @@ class CreateBuyerReqsTable extends Migration
     {
         Schema::create('buyer_reqs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('user_Id');
             $table->timestamps();
             $table->integer('category_Id');
             $table->string('model_year');
             $table->string('description') ->nullable();
             $table->double('price');
             $table->string('title');
-            $table->string('exp_Date');
+            $table->string('action_Date')->nullable();
+            $table->string('exp_Date')->nullable();
             $table->string('status')->default('pending');
             $table->string('remark')->nullable();
         });

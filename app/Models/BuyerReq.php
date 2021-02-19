@@ -15,7 +15,9 @@ class BuyerReq extends Model
             'price',
             'title',
             'exp_Date',
-            'remark'
+            'remark',
+            'action_Date',
+            'user_Id'
         ];
     
 }

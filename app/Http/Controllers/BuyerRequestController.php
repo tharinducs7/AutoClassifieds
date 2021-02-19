@@ -9,13 +9,14 @@ class BuyerRequestController extends Controller
 {
     public function createBuyerRequest(Request $request){
         $buyer = new BuyerReq;
-        $expDate = Carbon::now()->addDays(60);
+        
         $buyer->title = $request->title;
         $buyer->price = $request->price;
         $buyer->model_Year = $request->model_Year;
         $buyer->description = $request->description;
         $buyer->category_Id = $request->category_Id;
-        $buyer->exp_Date = $expDate;
+        $buyer->user_Id = $request->user_Id;
+      
         $buyer->save();
 
         return response()->json([
@@ -42,8 +43,11 @@ class BuyerRequestController extends Controller
             $request = BuyerReq::find($id);
             $status = "accept";
             if(strcmp("pending",$request->status)==0){
+           
                 $request = BuyerReq::find($id);
                  $request->status = $status;
+                 $request->action_Date = Carbon::now();
+                 $request->exp_Date = Carbon::now()->addDays(60);
                  $request->save();
 
             return response()->json([
@@ -71,6 +75,7 @@ class BuyerRequestController extends Controller
             if(strcmp("pending",$request->status)==0){
                 $request->status = $status;
                 $request->remark = is_null($remark->remark) ? $request->remark : $remark->remark;
+                $request->action_Date = Carbon::now();
                 $request->save();
                 return response()->json([
                     "message"=>"Request Rejected"
