@@ -1,9 +1,24 @@
 <?php
 
+us<<<<<<< HEAD
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdsController;
 
+=======
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SellerController;
+use App\Http\Controllers\BuyerRequestsController;
+
+
+
+use App\Models\Category;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ComplaintController;
+use App\Http\Controllers\BuyerRequestController;
+>>>>>>> 902e67a71a68d36f0af15895d6c9ceacb48d64e3
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,3 +42,42 @@ Route::delete('ads/{id}', [AdsController::class,'deleteAd']);
 Route::put('ads/approve/{id}', [AdsController::class,'approveAd']);
 
 
+ 
+Route::post('addSeller',[SellerController::class,'addseller']);
+
+Route::post('addBuyerRequest',[BuyerRequestsController::class,'addBuyerRequest']);
+
+Route::get('getallBuyerRequest',[BuyerRequestsController::class,'getallBuyerRequests']);
+
+Route::get('getallBuyerRequestPDF',[BuyerRequestsController::class,'downloadAllBuyerRequestsDetailsPDF']);
+
+Route::get('getSingleBuyerRequestPDF/{id}',[BuyerRequestsController::class,'downloadSingleBuyerRequestsDetailsPDF']);
+
+Route::get('getsellers',[SellerController::class,'getsellers']);
+
+Route::get('download-sellerspdf',[SellerController::class,'downloadAllSellerDetailsPDF']);
+
+Route::get('getSinglesellerPDF/{id}',[SellerController::class,'getSinglesellerPDF']);
+
+/*
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+*/
+
+
+
+Route::apiResource('/category', CategoryController::class);
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::post('/complaint',[ComplaintController::class,'create']);
+Route::put('/complaint',[ComplaintController::class,'update']);
+Route::get('/complaint',[ComplaintController::class,'getall']);
+Route::post('/buyer_req',[BuyerRequestController::class,'createBuyerRequest']);
+Route::get('/admin/Request',[BuyerRequestController::class,'displayAllRequest']);
+Route::get('/admin/Request/{id}',[BuyerRequestController::class,'displayRequestById']);
+Route::Put('/admin/Request/Reject/{id}',[BuyerRequestController::class,'rejectRequest']);
+Route::Put('/admin/Request/Accept/{id}',[BuyerRequestController::class,'acceptRequest']);

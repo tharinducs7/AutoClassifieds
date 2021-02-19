@@ -3,17 +3,16 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Category;
 
-class DatabaseSeeder extends Seeder
+class CategoryTableSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\Category::factory()->count(10)->create();
     }
 }
