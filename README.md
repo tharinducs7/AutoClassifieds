@@ -1,13 +1,20 @@
 ** Run "composer install" to automatically install the exact list of package versions from composer.lock. It may help solving most of the issues with missing packages.
 
+
 Recommended steps to run this project
 
 #1 cp .env.example .env
+
 #2 set DB_DATABASE in .env
+
 #3 composer install
+
 #4 php artisan key:generate
+
 #5 php artisan migrate
+
 #6 php artisan optimize
+
 #7 php artisan serve
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
