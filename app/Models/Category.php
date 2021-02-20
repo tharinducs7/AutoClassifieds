@@ -14,7 +14,7 @@ class Category extends Model
         'parentId',
         'categoryName',
         'isActive',
-        'iocn',
+        'icon',
     ];
 
 }
