@@ -33,42 +33,22 @@ Route::post('ads', [AdsController::class,'createAd']);
 Route::put('ads/{id}', [AdsController::class,'updateAd']);
 Route::delete('ads/{id}', [AdsController::class,'deleteAd']);
 Route::put('ads/approve/{id}', [AdsController::class,'approveAd']);
-
-
  
 Route::post('addSeller',[SellerController::class,'addseller']);
-
 Route::post('addBuyerRequest',[BuyerRequestsController::class,'addBuyerRequest']);
-
 Route::get('getallBuyerRequest',[BuyerRequestsController::class,'getallBuyerRequests']);
-
 Route::get('getallBuyerRequestPDF',[BuyerRequestsController::class,'downloadAllBuyerRequestsDetailsPDF']);
-
 Route::get('getSingleBuyerRequestPDF/{id}',[BuyerRequestsController::class,'downloadSingleBuyerRequestsDetailsPDF']);
-
 Route::get('getsellers',[SellerController::class,'getsellers']);
-
 Route::get('download-sellerspdf',[SellerController::class,'downloadAllSellerDetailsPDF']);
-
 Route::get('getSinglesellerPDF/{id}',[SellerController::class,'getSinglesellerPDF']);
 
-/*
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-*/
-
-
-
 Route::apiResource('/category', CategoryController::class);
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
 
 Route::post('/complaint',[ComplaintController::class,'create']);
 Route::put('/complaint',[ComplaintController::class,'update']);
 Route::get('/complaint',[ComplaintController::class,'getall']);
+
 Route::post('/buyer_req',[BuyerRequestController::class,'createBuyerRequest']);
 Route::get('/admin/Request',[BuyerRequestController::class,'displayAllRequest']);
 Route::get('/admin/Request/{id}',[BuyerRequestController::class,'displayRequestById']);
