@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->integer('parentId');
             $table->string('categoryName');
             $table->boolean('isActive')->default(1);
-            $table->string('icon');
+            $table->string('icon')->default("No image");
         });
     }
 
