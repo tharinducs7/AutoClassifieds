@@ -16,7 +16,9 @@ class CategoryController extends Controller
 
     public function index()
     {
-        return new CategoryResourceCollection(resource:Category::paginate());
+        //return new CategoryResourceCollection(resource:Category::paginate());
+        $cats = Category::paginate();
+        return (new CategoryResourceCollection($cats))->response();
     }
 
     public function store(Request $request)
