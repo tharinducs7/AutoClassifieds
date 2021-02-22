@@ -18,7 +18,7 @@ class CreateBuyerReqsTable extends Migration
             $table->string('user_Id');
             $table->timestamps();
             $table->integer('category_Id');
-            $table->string('model_year');
+            $table->string('model_Year');
             $table->string('description') ->nullable();
             $table->double('price');
             $table->string('title');
