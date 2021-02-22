@@ -6,7 +6,7 @@ use App\Http\Controllers\AdsController;
 
 
 use App\Http\Controllers\SellerController;
-use App\Http\Controllers\BuyerRequestsController;
+//use App\Http\Controllers\BuyerRequestsController;
 
 use App\Models\Category;
 use App\Http\Controllers\CategoryController;
@@ -34,11 +34,11 @@ Route::put('ads/{id}', [AdsController::class,'updateAd']);
 Route::delete('ads/{id}', [AdsController::class,'deleteAd']);
 Route::put('ads/approve/{id}', [AdsController::class,'approveAd']);
  
-Route::post('addSeller',[SellerController::class,'addseller']);
-Route::post('addBuyerRequest',[BuyerRequestsController::class,'addBuyerRequest']);
-Route::get('getallBuyerRequest',[BuyerRequestsController::class,'getallBuyerRequests']);
-Route::get('getallBuyerRequestPDF',[BuyerRequestsController::class,'downloadAllBuyerRequestsDetailsPDF']);
-Route::get('getSingleBuyerRequestPDF/{id}',[BuyerRequestsController::class,'downloadSingleBuyerRequestsDetailsPDF']);
+//Route::post('addSeller',[SellerController::class,'addseller']);
+//Route::post('addBuyerRequest',[BuyerRequestController::class,'addBuyerRequest']);
+Route::get('getallBuyerRequest',[BuyerRequestController::class,'getallBuyerRequests']);
+Route::get('getallBuyerRequestPDF',[BuyerRequestController::class,'downloadAllBuyerRequestsDetailsPDF']);
+Route::get('getSingleBuyerRequestPDF/{id}',[BuyerRequestController::class,'downloadSingleBuyerRequestsDetailsPDF']);
 Route::get('getsellers',[SellerController::class,'getsellers']);
 Route::get('download-sellerspdf',[SellerController::class,'downloadAllSellerDetailsPDF']);
 Route::get('getSinglesellerPDF/{id}',[SellerController::class,'getSinglesellerPDF']);

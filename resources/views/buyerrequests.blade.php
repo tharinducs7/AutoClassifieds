@@ -15,36 +15,49 @@
         <td>{{$req->id}}</td>
     </tr>
     <tr>
-        <th>Vehicle name:</th>
-        <td>{{$req->vehicle}}</td>
+        <th>UserId:</th>
+        <td>{{$req->user_Id}}</td>
     </tr>
     
     <tr>
-        <th>Category:</th>
-        <td>{{$req->category}}</td>
+        <th>Category ID:</th>
+        <td>{{$req->category_Id}}</td>
     </tr>
     <tr>
-        <th>Fuel:</th>
-        <td>{{$req->fuel}}</td>
+        <th>Model Year:</th>
+        <td>{{$req->model_year}}</td>
     </tr>
     <tr>
-        <th>Registration Year:</th>
-        <td>{{$req->registrationYear}}</td>
+        <th>Description :</th>
+        <td>{{$req->description}}</td>
     </tr>
     <tr>
-        <th>Mileage:</th>
-        <td>{{$req->mileage}}</td>
+        <th>Price:</th>
+        <td>{{$req->price}}</td>
     </tr>
     <tr>
-        <th>Description:</th>
-        <td>{{$req->Description}}</td>
+        <th>Title:</th>
+        <td>{{$req->title}}</td>
     </tr>
     <tr>
-        <th>Offers Sent:</th>
-        <td>{{$req->OffersSent}}</td>
+        <th>Action Date:</th>
+        <td>{{$req->action_Date}}</td>
+    </tr>
+    <tr>
+        <th>Expiry Date:</th>
+        <td>{{$req->exp_Date}}</td>
+    </tr>
+    <tr>
+        <th>Status:</th>
+        <td>{{$req->status}}</td>
+    </tr>
+    <tr>
+        <th>Remark:</th>
+        <td>{{$req->remark}}</td>
     </tr>
 </table>
 <br><br><br>
+
 @endforeach
 </body>
 </html>

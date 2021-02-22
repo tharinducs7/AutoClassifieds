@@ -5,6 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\BuyerReq;
 use Carbon\Carbon;
+
+/**
+ * NOTE: 2 imports required for Query builder 
+ * by: Esala
+*/
+use Illuminate\Support\Facades\DB;
+use PDF;
+
+
 class BuyerRequestController extends Controller
 {
     public function createBuyerRequest(Request $request){
@@ -95,4 +104,32 @@ class BuyerRequestController extends Controller
             ],404);
         }
     }
+
+    /**
+     * 
+     * NOTE: PDF generating functions implemented by Esala
+     * 
+     */
+    public function downloadAllBuyerRequestsDetailsPDF(){
+
+        $allRequests = DB::select("select * from buyer_reqs");
+        $pdf = PDF::loadView('buyerrequests', compact('allRequests'));
+
+        return $pdf->download('allBuyerRequestsDetails.pdf');
+
+    }
+
+    public function downloadSingleBuyerRequestsDetailsPDF($id){
+
+        $allRequests = DB::table('buyer_reqs')
+        ->where('id', $id)
+        ->get();
+
+        $pdf = PDF::loadView('buyerrequests', compact('allRequests'));
+
+        return $pdf->download('SingleBuyerRequestDetails.pdf');
+
+
+    }
+
 }
