@@ -8,15 +8,27 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\CategoryResourceCollection;
 
 class CategoryController extends Controller
-{
+{   
     public function show(Category $category)
     {
         return new CategoryResource($category);
     }
-
+    
     public function index()
     {
         return new CategoryResourceCollection(resource:Category::paginate());
+    }
+    
+    public function SubCat($pId){
+
+        $subCat = Category::has('parentId', '=', $pId)->get();
+        return new CategoryResource($subCat);
+    }
+
+    public function MiniSubCat($pId){
+
+        $miniSubCat = Category::has('parentId', '=', $pId)->get();
+        return new CategoryResource($miniSubCat);
     }
 
     public function store(Request $request)

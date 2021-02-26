@@ -44,6 +44,8 @@ Route::get('download-sellerspdf',[SellerController::class,'downloadAllSellerDeta
 Route::get('getSinglesellerPDF/{id}',[SellerController::class,'getSinglesellerPDF']);
 
 Route::apiResource('/category', CategoryController::class);
+Route::get('/category',[CategoryController::class,'SubCat']);
+Route::get('/category',[CategoryController::class,'MiniSubCat']);
 
 Route::post('/complaint',[ComplaintController::class,'create']);
 Route::put('/complaint',[ComplaintController::class,'update']);
